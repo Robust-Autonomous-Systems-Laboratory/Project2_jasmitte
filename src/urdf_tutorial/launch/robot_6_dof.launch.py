@@ -41,12 +41,12 @@ def generate_launch_description():
         }]
     )
 
-    # joint_state_publisher = Node(
-    #     package='joint_state_publisher',
-    #     executable='joint_state_publisher',
-    #     name='joint_state_publisher',
-    #     output='screen',
-    # )
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher',
+        output='screen',
+    )
 
     rviz2 = Node(
         package='rviz2',
@@ -57,22 +57,22 @@ def generate_launch_description():
         arguments=['-d', rviz_config]
     )
 
-    joint_state_publisher_gui_node = Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            parameters=[{
-                'robot_description': launch_ros.descriptions.ParameterValue(
-                    Command(['xacro ', urdf_file]),
-                    value_type=str
-                )
-            }],
-    )
+    # joint_state_publisher_gui_node = Node(
+    #         package='joint_state_publisher_gui',
+    #         executable='joint_state_publisher_gui',
+    #         name='joint_state_publisher_gui',
+    #         parameters=[{
+    #             'robot_description': launch_ros.descriptions.ParameterValue(
+    #                 Command(['xacro ', urdf_file]),
+    #                 value_type=str
+    #             )
+    #         }],
+    # )
 
     # Add nodes and actions to the LaunchDescription
     ld.add_action(robot_state_publisher)
-    # ld.add_action(joint_state_publisher)
-    ld.add_action(joint_state_publisher_gui_node)
+    ld.add_action(joint_state_publisher)
+    # ld.add_action(joint_state_publisher_gui_node)
     
     ld.add_action(rviz2)  
 

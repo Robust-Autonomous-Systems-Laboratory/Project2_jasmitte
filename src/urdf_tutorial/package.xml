@@ -11,7 +11,7 @@
   <author email="jasmitte@mtu.edu">Anders Smitterberg</author>
   <author email="karansspk462000@gmail.com">Karan</author>
 
-  <license>MIT</license>
+  <license>APACHE-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
